@@ -69,6 +69,7 @@ class LinkedList(AbstractLinkedList):
         # start at none
         self.start = None
         self.end = None
+        #[1,2], self.start (Node(1)) >> Node1.next now pts to Node(2) 
         # set elements to empty list
         elements = [] if not elements else elements
         for val in elements:
@@ -139,7 +140,7 @@ class LinkedList(AbstractLinkedList):
                     prior.next = None
                     self.end = prior.next
                     return element
-                else:
+            for element in self: #If the list has several items, remove the last one
                     prior = element
         else: #If we did pass an index
             if index >= len(self): raise IndexError() #But the index is greater than the existing number of nodes, raise error

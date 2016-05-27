@@ -69,6 +69,7 @@ class LinkedList(AbstractLinkedList):
         # start at none
         self.start = None
         self.end = None
+        #[1,2], self.start (Node(1)) >> Node1.next now pts to Node(2) 
         # set elements to empty list
         elements = [] if not elements else elements
         for val in elements:
@@ -147,7 +148,7 @@ class LinkedList(AbstractLinkedList):
                 temp = self.end
                 self.start, self.end = None, None
                 return temp
-            if self[index].next == None: #If we're trying to remove the last item
+            if index >= len(self): raise IndexError() #But the index is out of the 
                 temp = self[index]
                 if self[index-1]:
                     self[index-1].next = None
